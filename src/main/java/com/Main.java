@@ -1,13 +1,13 @@
 
 import java.util.*;
 
+import com.database.DBConnetion;
+
 
 public class Main {
 	
 	public static void main( String[] args ){
-	
-		Scanner scanner = new Scanner(System.in);
 
-		scanner.close();
+		DBConnection dbConnection = new DBConnection();
 	}
 }
