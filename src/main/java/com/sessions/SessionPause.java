@@ -1,61 +1,54 @@
-
-
+import java.time;
 import java.util.*;
-import java.time; 
 
-public class SessionPause{
-	
-	private Long pauseId;
-	private Long sessionId;
-	private LocalDateTime startedAt;
-	private LocalDateTime endedAt;
+public class SessionPause {
 
-	protected SessionPause(){}
+  private Long pauseId;
+  private Long sessionId;
+  private LocalDateTime startedAt;
+  private LocalDateTime endedAt;
 
-	public SessionPause(
-		Long pauseId,
-		Long sessionId,
-		LocalDateTime startedAt,
-		LocalDateTime endedAt
-			)
-	{
-		this.pauseId = pauseId;
-		this.sessionId = sessionid;
-		this.startedAt = startedAt;
-		this.endedAt = endedAt;
-	}
+  protected SessionPause() {}
 
-	// Setters ===============================================================================
-	public void setPauseId( Long id ){
-		pauseId = id;
-	}
+  public SessionPause(
+      Long pauseId, Long sessionId, LocalDateTime startedAt, LocalDateTime endedAt) {
+    this.pauseId = pauseId;
+    this.sessionId = sessionid;
+    this.startedAt = startedAt;
+    this.endedAt = endedAt;
+  }
 
-	public void setSessionId ( Long id ){
-		sessionId = id;
-	}
+  // Setters ===============================================================================
+  public void setPauseId(Long id) {
+    pauseId = id;
+  }
 
-	public void setStartedAt ( LocalDateTime time ){
-		startedAt = time;
-	}
+  public void setSessionId(Long id) {
+    sessionId = id;
+  }
 
-	public void setEndedAt ( LocalDateTime time ) {
-		endedAt = time;
-	}
+  public void setStartedAt(LocalDateTime time) {
+    startedAt = time;
+  }
 
-	// Getters ===============================================================================
-	public Long getPauseid(){
-		return pauseId;
-	}
+  public void setEndedAt(LocalDateTime time) {
+    endedAt = time;
+  }
 
-	public Long getSessionId(){ 
-		return sessionId 
-	}
+  // Getters ===============================================================================
+  public Long getPauseid() {
+    return pauseId;
+  }
 
-	public LocalDateTime getStartedAt(){
-		return startedAt;
-	}
+  public Long getSessionId() {
+    return sessionId;
+  }
 
-	public LocalDateTime getEndedAt(){
-		return endedAt;
-	}
+  public LocalDateTime getStartedAt() {
+    return startedAt;
+  }
+
+  public LocalDateTime getEndedAt() {
+    return endedAt;
+  }
 }

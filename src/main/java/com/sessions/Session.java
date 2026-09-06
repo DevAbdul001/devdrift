@@ -1,65 +1,56 @@
-
-
-import java.util.*; 
 import java.time;
+import java.util.*;
 
+public class Session {
 
-public class Session{
-	
-	private Long sessionId;
-	private LocalDateTime startedAt;
-	private LocalDateTime endedAt;
-	private String status;
-	private String notes;
+  private Long sessionId;
+  private LocalDateTime startedAt;
+  private LocalDateTime endedAt;
+  private String status;
+  private String notes;
 
-	protected Session(){}
+  protected Session() {}
 
-	public Session(
-		Long sessionId,
-		LocalDateTime startedAt,
-		LocalDateTime endedAt,
-		String status,
-		String notes
-	){
-		this.sessionId = sessionId;
-		this.startedAt = startedAt;
-		this.endedAt = ended_at;
-		this.status = status;
-		this.notes = notes;
-	}
+  public Session(
+      Long sessionId, LocalDateTime startedAt, LocalDateTime endedAt, String status, String notes) {
+    this.sessionId = sessionId;
+    this.startedAt = startedAt;
+    this.endedAt = ended_at;
+    this.status = status;
+    this.notes = notes;
+  }
 
-	// Setters =============================================================================
-	public void setSessionId( Long id ){
-		sessionId = id;
-	}
+  // Setters =============================================================================
+  public void setSessionId(Long id) {
+    sessionId = id;
+  }
 
-	public void setStartedAt( LocalDateTime time){
-		startedAt = time;
-	}
+  public void setStartedAt(LocalDateTime time) {
+    startedAt = time;
+  }
 
-	public void setEndedAt( LocalDateTime time ){
-		endedAt = time;
-	}
+  public void setEndedAt(LocalDateTime time) {
+    endedAt = time;
+  }
 
-	public void setNotes ( String newNotes ){
-		notes = newNotes;
-	}
+  public void setNotes(String newNotes) {
+    notes = newNotes;
+  }
 
+  // Getters ==============================================================================
+  public LocalDateTime getStartedAt() {
+    return startedAt;
+  }
 
-	// Getters ==============================================================================
-	public LocalDateTime getStartedAt(){
-		return startedAt;
-	}
+  public LocalDateTime getEndedAt() {
+    return endedAt;
+  }
 
-	public LocalDateTime getEndedAt(){
-		return endedAt;
-	}
+  public String getStatus() {
+    return status;
+  }
 
-	public String getStatus(){
-		return status;
-	}
-
-	public String getNotes(){
-		return notes;
-	}
+  public String getNotes() {
+    return notes;
+  }
 }
