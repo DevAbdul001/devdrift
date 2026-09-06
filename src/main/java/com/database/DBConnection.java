@@ -1,3 +1,5 @@
+package com.database;
+
 import java.sql.*;
 import java.util.*;
 
@@ -10,7 +12,6 @@ public class DBConnection {
   public Connection getConnection() {
 
     try {
-      Class.forName("com.mysql.cj.jdbc.Driver");
       Connection myConn = DriverManager.getConnection(url, user, password);
       return myConn;
 

@@ -2,6 +2,7 @@ package com.sessions;
 
 import com.database.DBConnection;
 import java.sql.*;
+import java.time.LocalDateTime;
 
 public class SessionRepo {
   private final DBConnection dbConnection;
@@ -10,7 +11,7 @@ public class SessionRepo {
     this.dbConnection = dbConnection;
   }
 
-  public Session startSession(Session session) {
+  public Session startSession(Session session) throws SQLException {
 
     Connection myConn = dbConnection.getConnection();
 
@@ -36,16 +37,14 @@ public class SessionRepo {
       }
       session.setSessionId(generatedId);
 
-      return session;
-
       myConn.close();
-
+      return session;
     } catch (SQLException e) {
       throw e;
     }
   }
 
-  public Session getSessionById(Long id) {
+  public Session getSessionById(Long id) throws SQLException {
 
     Connection myConn = dbConnection.getConnection();
     Session session = new Session();
@@ -74,7 +73,7 @@ public class SessionRepo {
     }
   }
 
-  public Session endSession(Long id) {
+  public Session endSession(Long id) throws SQLException {
 
     Connection myConn = dbConnection.getConnection();
     Session session = new Session();

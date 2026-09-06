@@ -1,4 +1,6 @@
-import java.time;
+package com.sessions;
+
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Session {
@@ -15,7 +17,7 @@ public class Session {
       Long sessionId, LocalDateTime startedAt, LocalDateTime endedAt, String status, String notes) {
     this.sessionId = sessionId;
     this.startedAt = startedAt;
-    this.endedAt = ended_at;
+    this.endedAt = endedAt;
     this.status = status;
     this.notes = notes;
   }
@@ -33,11 +35,17 @@ public class Session {
     endedAt = time;
   }
 
+  public void setStatus(String newStatus){ status = newStatus; }
+
   public void setNotes(String newNotes) {
     notes = newNotes;
   }
 
   // Getters ==============================================================================
+  public Long getSessionId(){
+	return sessionId;
+  }
+
   public LocalDateTime getStartedAt() {
     return startedAt;
   }

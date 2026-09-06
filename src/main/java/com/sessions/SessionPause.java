@@ -1,4 +1,8 @@
-import java.time;
+
+package com.sessions;
+
+import java.time.LocalDateTime;
+
 import java.util.*;
 
 public class SessionPause {
@@ -13,7 +17,7 @@ public class SessionPause {
   public SessionPause(
       Long pauseId, Long sessionId, LocalDateTime startedAt, LocalDateTime endedAt) {
     this.pauseId = pauseId;
-    this.sessionId = sessionid;
+    this.sessionId = sessionId;
     this.startedAt = startedAt;
     this.endedAt = endedAt;
   }
