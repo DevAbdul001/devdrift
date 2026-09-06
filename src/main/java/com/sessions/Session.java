@@ -6,9 +6,9 @@ import java.time;
 
 public class Session{
 	
-	private Long session_id;
-	private LocalDateTime started_at;
-	private LocalDateTime ended_at;
+	private Long sessionId;
+	private LocalDateTime startedAt;
+	private LocalDateTime endedAt;
 	private String status;
 	private String notes;
 
@@ -19,14 +19,17 @@ public class Session{
 		String status,
 		String notes
 	){
-		this.session_id = sessionId;
-		this.started_at = startedAt;
-		this.ended_at = ended_at;
+		this.sessionId = sessionId;
+		this.startedAt = startedAt;
+		this.endedAt = ended_at;
 		this.status = status;
 		this.notes = notes;
 	}
 
 	// Setters =============================================================================
+	public void setSessionId( Long id ){
+		sessionId = id;
+	}
 
 	public void setStartedAt( LocalDateTime time){
 		startedAt = time;
