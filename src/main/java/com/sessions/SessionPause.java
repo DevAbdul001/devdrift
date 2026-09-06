@@ -10,6 +10,8 @@ public class SessionPause{
 	private LocalDateTime startedAt;
 	private LocalDateTime endedAt;
 
+	protected SessionPause(){}
+
 	public SessionPause(
 		Long pauseId,
 		Long sessionId,

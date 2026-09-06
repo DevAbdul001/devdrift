@@ -12,6 +12,8 @@ public class Session{
 	private String status;
 	private String notes;
 
+	protected Session(){}
+
 	public Session(
 		Long sessionId,
 		LocalDateTime startedAt,

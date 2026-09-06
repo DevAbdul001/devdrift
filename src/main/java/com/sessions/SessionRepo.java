@@ -46,7 +46,72 @@ public class SessionRepo{
 			myConn.close();
 			
 		} catch (SQLException e) {
-			throw new SQLException(e.getMessage());
+			throw e;
+		}
+	}
+
+	public Long getSessionById( Long id ){
+		
+		Connection myConn = dbConnection.getConnection();
+		Long sessionId = null;
+
+		try( myConn ){
+			String sql = "SELECT session_id FROM sessions WHERE session_id = ?";
+
+			try( PreparedStatement pstmt = myConn.prepareStatement(sql)){
+				pstmt.setLong(1, id);
+				
+				try( ResultSet rs  = pstmt.executeQuery()){
+					if( rs.next()){
+						sessionId = rs.getLong("session_id");		
+					}
+				}
+			}
+			
+			return sessionId;
+		} catch (SQLException e){
+			throw e;
+		}
+	}
+
+
+	public Session endSession( Long id ){
+		
+		Connection myConn = dbConnection.getConnection();
+		Session session = new Session();
+
+		try( myConn ){
+			myConn.setAutoCommit(false);
+			String updateSql = "UPDATE sessions SET ended_at = NOW() WHERE session_id = ?";
+			String selectSql =
+				"SELECT session_id, started_at, status, ended_at, notes FROM sessions WHERE session_id = ?";
+
+			try( PreparedStatement updatePstmt = myConn.prepareStatement(updateSql)) {
+				updatePstmt.setLong(1, id);
+				updatePstmt.executeUpdate();
+			}
+
+			try( PreparedStatement selectPstmt = myConn.prepareStatement(selectSql)) {
+				selectPstmt.setLong(1, id);
+
+				try( ResultSet rs = selectPstmt.executeQuery()) {
+					if(rs.next()){
+						
+						session.setSessionId(rs.getLong("session_id"));
+						session.setStartedAt(rs.getObject("started_at", LocalDateTime.class));
+						session.setEndedAt(rs.getObject("ended_at", LocalDateTime.class));
+						session.setStatus(rs.getString("status"));
+						session.setNotes(rs.getString("notes"));
+					}
+				}
+			}
+
+			myConn.commit();
+			return session;
+
+		} catch (SQLException e) {
+			myConn.rollback();
+			throw e;
 		}
 	}
 }
