@@ -80,7 +80,9 @@ public class SessionRepo {
 
     try (myConn) {
       myConn.setAutoCommit(false);
-      String updateSql = "UPDATE sessions SET ended_at = NOW() WHERE session_id = ?";
+      String updateSql =
+          "UPDATE sessions SET ended_at = NOW(), status = 'ENDED' WHERE session_id = ?";
+
       String selectSql =
           "SELECT session_id, started_at, status, ended_at, notes FROM sessions WHERE session_id = ?";
 
