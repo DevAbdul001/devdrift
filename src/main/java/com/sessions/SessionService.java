@@ -40,7 +40,9 @@ public class SessionService {
     try {
       Session existingSession = repo.getSessionById(id);
 
-      if( Objects.equals( existingSession, null) ){ throw new RuntimeException("Invalid session id.");}
+      if (Objects.equals(existingSession, null)) {
+        throw new RuntimeException("Invalid session id.");
+      }
 
       if (!(Objects.equals(existingSession.getEndedAt(), null))) {
         throw new RuntimeException("Session already ended.");
@@ -49,7 +51,7 @@ public class SessionService {
       Session session = repo.endSession(id);
       return session;
     } catch (Exception e) {
-      throw new RuntimeException( "Something went wrong" + e.getMessage());
+      throw new RuntimeException("Something went wrong" + e.getMessage());
     }
   }
 }

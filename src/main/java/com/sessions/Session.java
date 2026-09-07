@@ -35,15 +35,17 @@ public class Session {
     endedAt = time;
   }
 
-  public void setStatus(String newStatus){ status = newStatus; }
+  public void setStatus(String newStatus) {
+    status = newStatus;
+  }
 
   public void setNotes(String newNotes) {
     notes = newNotes;
   }
 
   // Getters ==============================================================================
-  public Long getSessionId(){
-	return sessionId;
+  public Long getSessionId() {
+    return sessionId;
   }
 
   public LocalDateTime getStartedAt() {

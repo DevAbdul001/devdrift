@@ -15,8 +15,8 @@ public class DBConnection {
       Connection myConn = DriverManager.getConnection(url, user, password);
       return myConn;
 
-    } catch (Exception e) {
-      throw new RuntimeException("Something went wrong!");
+    } catch (SQLException e) {
+      throw new RuntimeException("Something went wrong!" + e.getMessage());
     }
   }
 }
